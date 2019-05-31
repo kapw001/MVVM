@@ -14,11 +14,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
         tools:context=".LoginActivity">
+
+
+        <com.mvvm.MySpinner
+            android:id="@+id/mySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Testing" />
+
+        </com.mvvm.MySpinner>
+
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/round_corner"
+            app:ms_alignLabels="true"
+            app:ms_alwaysShowFloatingLabel="true"
+            app:ms_floatingLabelText="Select Name"
+            app:ms_hint="Select Name"
+
+            app:ms_hintView="@layout/hint_item"
+            app:ms_thickness="1dp"
+
+            />
 
 
         <EditText

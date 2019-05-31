@@ -14,11 +14,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.mvvm.databinding.ActivityLoginBinding;
 
 import java.util.Arrays;
+
+import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -42,6 +49,29 @@ public class LoginActivity extends AppCompatActivity {
         binding.setVm(viewModel);
 
         final User user = new User();
+
+
+        String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner = (MaterialSpinner) findViewById(R.id.spinner);
+        binding.spinner4.setAdapter(adapter);
+
+
+        binding.mySpinner.setAdapterList(Arrays.asList(ITEMS));
+
+        binding.mySpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+//                ListAdapter listAdapter = binding.mySpinner.getAdapter();
+
+                String s = (String) binding.mySpinner.getSelectedItem();
+
+                Toast.makeText(LoginActivity.this, "" + s, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         viewModel.spinnerItem.observe(this, new Observer<Integer>() {
