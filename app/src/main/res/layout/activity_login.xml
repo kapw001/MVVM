@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mvvm.LoginViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".LoginActivity">
+
+
+        <EditText
+            android:id="@+id/name"
+            error="@{vm.nameError}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:text="@={vm.name}" />
+
+        <EditText
+            android:id="@+id/email"
+            error="@{vm.nameError}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:text="@={vm.email}" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()->vm.onLogin()}"
+            android:text="Login" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:entries="@array/test"
+
+            android:selectedItemPosition="@={vm.spinnerItem}"
+
+            />
+
+
+        <com.mvvm.CustomSpinnerInputLayout
+            android:id="@+id/customSelectedInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            realValue="@={vm.customSpinner}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint" />
+        </com.mvvm.CustomSpinnerInputLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_corner"
+                android:entries="@array/test"
+                android:padding="16dp"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                style="@style/TextView.InputLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Category" />
+
+            <!--<android.support.v7.widget.AppCompatSpinner-->
+            <!--android:id="@+id/categorySpinner"-->
+            <!--style="@style/Widget.AppCompat.Spinner.Underlined"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:entries="@array/test"-->
+            <!--android:spinnerMode="dialog" />-->
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

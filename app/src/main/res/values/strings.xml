@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MVVM</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+
+
+    <string-array name="test">
+
+        <item>Test1</item>
+        <item>Test2</item>
+        <item>Test3</item>
+        <item>Test4</item>
+        <item>Test5</item>
+
+    </string-array>
+
+</resources>
